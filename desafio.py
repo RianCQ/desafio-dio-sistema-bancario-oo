@@ -201,3 +201,18 @@ class Saque(Transacao):
         if transacao:
             conta.historico.adicionar_transacao(self)
 
+def menu():
+    menu = """
+    ---------- Menu ----------
+        [d] Depositar
+        [s] Sacar
+        [e] Extrato
+        [nc] Nova conta
+        [nu] Novo usuário
+        [lu] Lista usuários
+        [lc] Lista contas
+        [p] Parar
+
+    => """
+
+    return input(textwrap.dedent(menu))
