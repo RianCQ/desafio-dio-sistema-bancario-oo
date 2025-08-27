@@ -347,3 +347,5 @@ def main():
             break
         else:
             print("Erro: Operação inválida. Por favor, selecione novamente a operação desejada.")
+
+main()
