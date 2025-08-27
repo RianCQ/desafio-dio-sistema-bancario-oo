@@ -231,6 +231,19 @@ def depositar(clientes):
     else:
         print("Erro: Cliente não encontrado.")
 
+def sacar(clientes):
+    cpf = input("Informe o CPF: ")
+    cliente = filtrar_cliente(cpf, clientes)
+    if cliente != False:
+        valor = float(input("Informe o valor a ser sacado: "))
+        transacao = Saque(valor)
+        conta = recuperar_conta(cliente)
+        if not conta: 
+            return
+        cliente.realizar_transacao(conta, transacao)
+    else: 
+        print("Erro: Cliente não encontrado.")
+
 def filtrar_cliente(cpf, clientes):
     for cliente in clientes:
         if cliente.cpf == cpf:
