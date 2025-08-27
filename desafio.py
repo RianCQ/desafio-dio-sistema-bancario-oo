@@ -217,6 +217,20 @@ def menu():
 
     return input(textwrap.dedent(menu))
 
+def depositar(clientes):
+    cpf = input("Informe o CPF: ")
+    cliente = filtrar_cliente(cpf, clientes)
+    
+    if cliente != False:
+        valor = float(input("Informe o valor a ser depositado: "))
+        transacao = Deposito(valor)
+        conta = recuperar_conta(cliente)
+        if not conta:
+            return
+        cliente.realizar_transacao(conta, transacao)
+    else:
+        print("Erro: Cliente não encontrado.")
+
 def main():
     clientes = []
     contas = []
