@@ -261,7 +261,7 @@ def exibir_extrato(clientes):
             extrato = "Não foram realizadas movimentações."
         else:
             for transacao in transacoes:
-                extrato += f"\n{transacao['tipo']}:\n\tR${transacao['valor']:.2f}"
+                extrato += f"\n{transacao['tipo']}:\tR${transacao['valor']:.2f}\tData: {transacao['data']}"
         print(extrato)
         print(f"\nSaldo: R${conta.saldo:.2f}")
         print("################################################")
