@@ -300,6 +300,18 @@ def criar_cliente(clientes):
     else:
         print("Erro: Cliente já inscrito.")
 
+def criar_conta(numero, clientes, contas):
+    cpf = input("Informe o CPF do cliente: ")
+    cliente = filtrar_cliente(cpf, clientes)
+    
+    if cliente != False:
+        conta = ContaCorrente.nova_conta(cliente, numero)
+        contas.append(conta)
+        cliente.adicionar_conta(conta)
+        print("Conta criada com sucesso.")
+    else:
+        print("Erro: Cliente não detectado.")
+
 def main():
     clientes = []
     contas = []
