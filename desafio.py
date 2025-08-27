@@ -45,3 +45,12 @@ class PessoaFisica(Cliente):
     @property
     def data(self):
         return self._data
+    
+    def __str__(self) -> str:
+        return f"""
+            CPF:  {self.cpf}
+            Nome: {self.nome}
+            Nascimento: {self.data}
+            Endereço do cliente: {self.endereco}
+            Contas: {[str(conta.numero) for conta in self.contas]}
+        """
