@@ -54,3 +54,32 @@ class PessoaFisica(Cliente):
             Endereço do cliente: {self.endereco}
             Contas: {[str(conta.numero) for conta in self.contas]}
         """
+    
+class Conta:
+    def __init__(self, cliente, numero):
+        self._numero = numero
+        self._cliente = cliente
+        self._saldo = 0
+        self._agencia = "101"
+        self._historico = Historico()
+    
+    @property
+    def numero(self):
+        return self._numero
+
+    @property
+    def cliente(self):
+        return self._cliente
+    
+    @property
+    def agencia(self):
+        return self._agencia
+
+    @property
+    def historico(self):
+        return self._historico
+    
+    @property
+    def saldo(self):
+        return self._saldo
+    
