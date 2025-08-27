@@ -237,6 +237,20 @@ def filtrar_cliente(cpf, clientes):
             return cliente
     return False
 
+def recuperar_conta(cliente):
+    if not cliente.contas:
+        print("Erro: Conta não detectada.")
+        return
+    
+    contas_disponiveis = ', '.join(str(conta.numero) for conta in cliente.contas)
+    print(f"As contas disponíveis do cliente são:\n{contas_disponiveis}")
+    num_conta = int(input("Informe o número da conta desejada: "))
+    index = -1
+    for conta in cliente.contas:
+        index += 1
+        if conta.numero == num_conta:
+            return cliente.contas[index]
+
 def main():
     clientes = []
     contas = []
