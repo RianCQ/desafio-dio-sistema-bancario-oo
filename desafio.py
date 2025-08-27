@@ -216,3 +216,31 @@ def menu():
     => """
 
     return input(textwrap.dedent(menu))
+
+def main():
+    clientes = []
+    contas = []
+
+    while True:
+        opcao = menu()
+
+        if opcao == 'd':
+            depositar(clientes)
+        elif opcao == 's':
+            sacar(clientes)
+        elif opcao == 'e':
+            exibir_extrato(clientes)
+        elif opcao == 'nu':
+            criar_cliente(clientes)
+        elif opcao == 'nc':
+            numero_conta = len(contas)+1
+            criar_conta(numero_conta, clientes, contas)
+        elif opcao == 'lu':
+            listar_clientes(clientes)
+        elif opcao == 'lc':
+            listar_contas(contas)
+        elif opcao == 'p':
+            print("Saindo do processo...")
+            break
+        else:
+            print("Erro: Operação inválida. Por favor, selecione novamente a operação desejada.")
