@@ -15,3 +15,15 @@ class Cliente:
     def contas(self):
         return self._contas
     
+    def realizar_transacao(self, conta, transacao):
+        transacao.registrar(conta)
+
+    def adicionar_conta(self, conta):
+        self.contas.append(conta)
+
+    def __str__(self):
+        return f"""
+            Endereço do cliente: {self.endereco}
+            Contas: {[conta.numero for conta in self.contas]}
+        """
+    
