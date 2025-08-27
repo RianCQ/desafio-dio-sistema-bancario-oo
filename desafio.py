@@ -83,3 +83,33 @@ class Conta:
     def saldo(self):
         return self._saldo
     
+    @classmethod
+    def nova_conta(cls, cliente, numero):
+        return cls(cliente, numero)
+    
+    def sacar(self, valor):
+        if valor < 0:
+            print("Erro: Valor inválido.")
+            return False
+        elif self.saldo >= valor:
+            self._saldo -= valor
+            print("Saque realizado com sucesso.")
+            return True
+        else:
+            print("Erro: Saque mal sucedido")
+            return False
+    
+    def depositar(self, valor):
+        if valor > 0:
+            self._saldo += valor
+            print("Depósito bem sucedido")
+            return True
+        print("Erro: Depósito mal sucedido")
+        return False
+    
+    def __str__(self):
+        return f"""
+            Agência: {self.agencia}
+            Código:  {self.numero}
+            Titular: {self.cliente.nome}
+        """
