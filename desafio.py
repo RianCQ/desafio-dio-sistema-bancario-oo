@@ -144,3 +144,12 @@ class ContaCorrente(Conta):
 
     def __str__(self):
         return super().__str__()    
+    
+class Historico:
+    def __init__(self):
+        self._transacoes = []
+    
+    @property
+    def transacoes(self):
+        return self._transacoes
+    
