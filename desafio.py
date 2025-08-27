@@ -312,6 +312,14 @@ def criar_conta(numero, clientes, contas):
     else:
         print("Erro: Cliente não detectado.")
 
+def listar_clientes(clientes):
+    for cliente in clientes:
+        print(str(cliente))
+
+def listar_contas(contas):
+    for conta in contas:
+        print(str(conta))
+
 def main():
     clientes = []
     contas = []
