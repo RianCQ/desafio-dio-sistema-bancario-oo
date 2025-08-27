@@ -231,6 +231,12 @@ def depositar(clientes):
     else:
         print("Erro: Cliente não encontrado.")
 
+def filtrar_cliente(cpf, clientes):
+    for cliente in clientes:
+        if cliente.cpf == cpf:
+            return cliente
+    return False
+
 def main():
     clientes = []
     contas = []
