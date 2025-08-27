@@ -244,6 +244,28 @@ def sacar(clientes):
     else: 
         print("Erro: Cliente não encontrado.")
 
+def exibir_extrato(clientes):
+    cpf = input("Informe o CPF do cliente: ")
+    cliente = filtrar_cliente(cpf, clientes)
+
+    if cliente != False:
+        conta = recuperar_conta(cliente)
+        if not conta:
+            return
+        
+        print("################### EXTRATO ###################")
+        transacoes = conta.historico.transacoes
+
+        extrato = ""
+        if not transacoes:
+            extrato = "Não foram realizadas movimentações."
+        else:
+            for transacao in transacoes:
+                extrato += f"\n{transacao['tipo']}:\n\tR${transacao['valor']:.2f}"
+        print(extrato)
+        print(f"\nSaldo: R${conta.saldo:.2f}")
+        print("################################################")
+
 def filtrar_cliente(cpf, clientes):
     for cliente in clientes:
         if cliente.cpf == cpf:
