@@ -127,3 +127,20 @@ class ContaCorrente(Conta):
     @property
     def limite_saques(self):
         return self._limite_saques
+    
+    def sacar(self, valor):
+        numero_saques = len(
+            [transacao for transacao in self.historico.transacoes
+             if transacao["tipo"] == Saque.__name__]
+        )
+        if self.limite < valor:
+            print("Erro: Limite atingido no valor de saque.")
+            return False
+        if self.limite_saques == numero_saques:
+            print("Erro: Número de saques atingido.")
+            return False
+        else:
+            return super().sacar(valor)
+
+    def __str__(self):
+        return super().__str__()    
