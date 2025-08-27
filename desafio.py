@@ -113,3 +113,17 @@ class Conta:
             Código:  {self.numero}
             Titular: {self.cliente.nome}
         """
+    
+class ContaCorrente(Conta):
+    def __init__(self, cliente, numero, limite=500, limite_saques=3):
+        super().__init__(cliente, numero)
+        self._limite = limite
+        self._limite_saques = limite_saques
+    
+    @property
+    def limite(self):
+        return self._limite
+    
+    @property
+    def limite_saques(self):
+        return self._limite_saques
