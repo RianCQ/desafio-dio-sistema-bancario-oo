@@ -286,6 +286,20 @@ def recuperar_conta(cliente):
         if conta.numero == num_conta:
             return cliente.contas[index]
 
+def criar_cliente(clientes):
+    cpf = input("Escreva seu CPF: ")
+    cliente = filtrar_cliente(cpf, clientes)
+
+    if cliente == False:
+        nome = input("Escreva seu nome: ")
+        data = input("Escreva sua data de nascimento (dd/mm/aaaa): ")
+        endereco = input("Escreva seu endereco (logradouro, n° - bairro - cidade/sigla estado): ")
+        novo_cliente = PessoaFisica(cpf, nome, data, endereco)
+        clientes.append(novo_cliente)
+        print("Cliente criado com sucesso.")
+    else:
+        print("Erro: Cliente já inscrito.")
+
 def main():
     clientes = []
     contas = []
